@@ -1,0 +1,15 @@
+.main-content {
+  margin-top: 60px;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.collapsed + .main-content {
+  margin-left: 60px;
+}
+.v-center {
+  min-height:200px;
+  display: flex;
+  justify-content:center;
+  flex-flow: column wrap;
+}

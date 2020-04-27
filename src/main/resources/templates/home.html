@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Spring Boot Thymeleaf Application - Login</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css} " />
+	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.3.1/css/all.css}" />   
+	<link th:rel="stylesheet" th:href="@{/css/home.css}" /> 
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-global static-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="/">Login And Registration Application</a>
+				<ul class="nav navbar-nav navbar-user ml-auto">
+					<div sec:authorize="isAuthenticated()"> 
+				   		<li class="nav nav-item dropdown no-arrow mx-1">
+				           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" 
+				           	data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				             <i class="fas fa-user"></i> <span sec:authentication="name"></span> <span class="caret"></span>
+				           </a>
+				           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+				           	<a th:href="@{/logout}" class="dropdown-item">Logout</a>				           	         	
+				         </li>
+					</div>	        
+		        </ul>
+		    </div>
+ 	   </nav>	
+ 	<div class="main-content">
+      <div class="row">
+      	<div class="col-md-8 offset-md-2">
+      		<div class="card card-outline-secondary">
+                <div class="card-header">
+                  <h3 class="mb-0"><span sec:authentication="name"></span> profile information</h3>
+                </div>
+                <div class="card-body">
+                     <form class="form" role="form" autocomplete="off">
+                     	 <div class="form-group row">
+                           <label class="col-lg-3 col-form-label form-control-label">First name:</label>
+                           <div class="col-lg-9">
+                        	   <span th:text="${userProfile.firstName}"></span>
+                            </div>
+                         </div>
+                     	 <div class="form-group row">
+                           <label class="col-lg-3 col-form-label form-control-label">Last name:</label>
+                           <div class="col-lg-9">
+                        	   <span th:text="${userProfile.lastName}"></span>
+                            </div>
+                         </div>
+                     	 <div class="form-group row">
+                           <label class="col-lg-3 col-form-label form-control-label">Email:</label>
+                           <div class="col-lg-9">
+                           		<span th:text="${userProfile.email}"></span>
+                            </div>
+                         </div>
+                     	 <div class="form-group row">
+                           <label class="col-lg-3 col-form-label form-control-label">Phone Number:</label>
+                           <div class="col-lg-9">
+                        	   <span th:text="${userProfile.phoneNumber}"></span>
+                            </div>
+                         </div>
+                         <div class="form-group row">
+	                         <label class="col-lg-3 col-form-label form-control-label">Roles:</label>
+	                         <div class="col-lg-9">
+	                         	<span sec:authentication="authorities"></span>
+	                         </div>
+	                      </div>                                           	 
+                     </form>
+                 </div>
+        	</div>                
+      	</div>
+       <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+</script>
+</body>
+
+</html>

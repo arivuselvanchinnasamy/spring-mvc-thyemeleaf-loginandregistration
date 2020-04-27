@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Spring Boot Thymeleaf Application - Login</title>
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css} " />
+	<link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.3.1/css/all.min.css}" />
+	<link th:rel="stylesheet" th:href="@{/css/login.css}" />
+</head>
+
+<body>
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <!-- form card login -->
+                    <div class="card rounded shadow shadow-sm">
+                        <div class="card-header">
+                            <h3 class="mb-0">Login</h3>
+                        </div>
+                        <div class="card-body">
+                             <form class="form" th:action="@{/login}" method="post">
+                                <div class="form-group">
+                                    <label for="username">User Name</label>
+                                     <input type="text" class="form-control form-control-lg rounded-0" th:id="username" name="username" placeholder="User name" th:name="username">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control form-control-lg rounded-0" th:id="password" name="password" placeholder="Password" th:name="password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                 <a th:href="@{/registration}" class="btn btn-primary btn-lg float-left" role="button" aria-pressed="true">Register New User</a>
+                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<!--/container-->
+    <script th:src="@{/webjars/jquery/3.5.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+   </body>
+
+</html>
